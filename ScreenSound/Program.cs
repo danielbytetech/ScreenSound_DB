@@ -1,5 +1,32 @@
-﻿using ScreenSound.Menus;
+﻿using ScreenSound.Banco;
+using ScreenSound.Menus;
 using ScreenSound.Modelos;
+using System;
+using System.Collections.Generic;
+
+
+try
+{
+    var artistaDAL = new ArtistaDAL();
+    //artistaDAL.Adicionar(new Artista("Foo Fighters", "Foo Fighters é uma banda de rock alternativo americana formada por Dave Grohl em 1995."));
+
+    artistaDAL.Deletar(6);
+
+    artistaDAL.Atualizar(12, new Artista("Red Hot Chilli Peppers", "Red Hot Chilli Peppers é uma banda de rock Alternatiiva"));
+
+    var listarArtistas = artistaDAL.Listar();
+
+    foreach(var artista in listarArtistas)
+    {
+        Console.WriteLine(artista);
+    }
+}
+catch(Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
+return;
 
 Artista ira = new Artista("Ira!", "Banda Ira!");
 Artista beatles = new("The Beatles", "Banda The Beatles");

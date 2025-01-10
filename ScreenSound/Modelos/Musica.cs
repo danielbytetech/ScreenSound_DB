@@ -1,24 +1,27 @@
-﻿namespace ScreenSound.Modelos;
+﻿using System;
 
-internal class Musica
+namespace ScreenSound.Modelos
 {
-    public Musica(string nome)
+    internal class Musica
     {
-        Nome = nome;
-    }
+        public Musica(string nome)
+        {
+            Nome = nome;
+        }
 
-    public string Nome { get; set; }
-    public int Id { get; set; }
+        public string Nome { get; set; }
+        public int Id { get; set; }
 
-    public void ExibirFichaTecnica()
-    {
-        Console.WriteLine($"Nome: {Nome}");
-      
-    }
+        public void ExibirFichaTecnica()
+        {
+            Console.WriteLine($"Nome: {Nome}");
 
-    public override string ToString()
-    {
-        return @$"Id: {Id}
+        }
+
+        public override string ToString()
+        {
+            return @$"Id: {Id}
         Nome: {Nome}";
+        }
     }
 }
