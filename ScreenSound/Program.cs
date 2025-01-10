@@ -7,12 +7,13 @@ using System.Collections.Generic;
 
 try
 {
-    var artistaDAL = new ArtistaDAL();
-    //artistaDAL.Adicionar(new Artista("Foo Fighters", "Foo Fighters é uma banda de rock alternativo americana formada por Dave Grohl em 1995."));
+    var context = new ScreenSoundContext();
+    var artistaDAL = new ArtistaDAL(context);
 
-    artistaDAL.Deletar(6);
+    var novoArtista = new Artista("Gilberto Gil", "Gilberto Passos Gil Moreira é um cantor, compositor, multi-instrumentista, produtor musical, político e escritor brasileiro.") { Id = 3002 };
 
-    artistaDAL.Atualizar(12, new Artista("Red Hot Chilli Peppers", "Red Hot Chilli Peppers é uma banda de rock Alternatiiva"));
+    //artistaDAL.Adicionar(novoArtista);
+    artistaDAL.Atualizar(novoArtista);
 
     var listarArtistas = artistaDAL.Listar();
 
