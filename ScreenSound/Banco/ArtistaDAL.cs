@@ -91,5 +91,10 @@ namespace ScreenSound.Banco
 
             //Console.WriteLine($"Linhas afetadas: {retorno}");
         }
+
+        public Artista? RecuperarPeloNome(string nome)
+        {
+            return context.Artistas.FirstOrDefault(b => b.Nome.Equals(nome));
+        }
     }
 }

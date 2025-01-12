@@ -4,37 +4,8 @@ using ScreenSound.Modelos;
 using System;
 using System.Collections.Generic;
 
-
-try
-{
-    var context = new ScreenSoundContext();
-    var artistaDAL = new ArtistaDAL(context);
-
-    var novoArtista = new Artista("Gilberto Gil", "Gilberto Passos Gil Moreira é um cantor, compositor, multi-instrumentista, produtor musical, político e escritor brasileiro.") { Id = 3002 };
-
-    //artistaDAL.Adicionar(novoArtista);
-    artistaDAL.Atualizar(novoArtista);
-
-    var listarArtistas = artistaDAL.Listar();
-
-    foreach(var artista in listarArtistas)
-    {
-        Console.WriteLine(artista);
-    }
-}
-catch(Exception e)
-{
-    Console.WriteLine(e.Message);
-}
-
-return;
-
-Artista ira = new Artista("Ira!", "Banda Ira!");
-Artista beatles = new("The Beatles", "Banda The Beatles");
-
-Dictionary<string, Artista> artistasRegistrados = new();
-artistasRegistrados.Add(ira.Nome, ira);
-artistasRegistrados.Add(beatles.Nome, beatles);
+var context = new ScreenSoundContext();
+var artistaDAL = new ArtistaDAL(context);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarArtista());
@@ -73,7 +44,7 @@ void ExibirOpcoesDoMenu()
     if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
         Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica];
-        menuASerExibido.Executar(artistasRegistrados);
+        menuASerExibido.Executar(artistaDAL);
         if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
     } 
     else
