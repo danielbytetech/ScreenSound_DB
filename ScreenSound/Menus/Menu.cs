@@ -1,4 +1,5 @@
-﻿using ScreenSound.Modelos;
+﻿using ScreenSound.Banco;
+using ScreenSound.Modelos;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace ScreenSound.Menus
             Console.WriteLine(titulo);
             Console.WriteLine(asteriscos + "\n");
         }
-        public virtual void Executar(Dictionary<string, Artista> nusicasRegistradas)
+        public virtual void Executar(ArtistaDAL artistaDAL)
         {
             Console.Clear();
         }
