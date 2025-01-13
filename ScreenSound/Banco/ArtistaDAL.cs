@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ScreenSound.Banco
 {
-    class ArtistaDAL
+    class ArtistaDAL : DAL<Artista>
     {
         private readonly ScreenSoundContext context;
 
@@ -15,7 +15,7 @@ namespace ScreenSound.Banco
             this.context = context;
         }
 
-        public IEnumerable<Artista> Listar()
+        public override IEnumerable<Artista> Listar()
         {         
             return context.Artistas.ToList();
             
@@ -39,7 +39,7 @@ namespace ScreenSound.Banco
             //return lista;
         }
 
-        public void Adicionar(Artista artista)
+        public override void Adicionar(Artista artista)
         {           
             context.Artistas.Add(artista);
             context.SaveChanges();
@@ -55,7 +55,7 @@ namespace ScreenSound.Banco
             //Console.WriteLine($"Linhas afetadas: {retorno}");
         }
 
-        public void Atualizar(Artista artista)
+        public override void Atualizar(Artista artista)
         {
             context.Artistas.Update(artista);
             context.SaveChanges();
@@ -74,7 +74,7 @@ namespace ScreenSound.Banco
             //Console.WriteLine($"Linhas afetadas: {resultado}");
         }
 
-        public void Deletar(Artista artista)
+        public override void Deletar(Artista artista)
         {
             context.Artistas.Remove(artista);
             context.SaveChanges();
