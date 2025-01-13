@@ -37,6 +37,7 @@ namespace ScreenSound.Banco
         }
 
         //Func é uma classe onde verifica um tipo de parametro como entrada e retorna um tipo de valor bool 
+        //Quando for alterar e colocar valores nos paramentros, utiliza-se a expressão lambda
         public T? RecuperarPor(Func<T, bool> condicao)
         {
             return context.Set<T>().FirstOrDefault(condicao);
