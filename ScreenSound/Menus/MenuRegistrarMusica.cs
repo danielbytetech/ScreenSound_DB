@@ -20,9 +20,13 @@ namespace ScreenSound.Menus
             if (artistaRecuperado is not null)
             {
                 Console.Write("Agora digite o título da música: ");
-                string tituloDaMusica = Console.ReadLine()!;                
-                artistaRecuperado.AdicionarMusica(new Musica(tituloDaMusica));
+                string tituloDaMusica = Console.ReadLine()!;
+                Console.Write("Agora digite o ano de lançamento da música: ");
+                string anoLacamento = Console.ReadLine()!;
+                artistaRecuperado.AdicionarMusica(new Musica(tituloDaMusica) 
+                { AnoLancamento = Convert.ToInt32(anoLacamento)});
                 Console.WriteLine($"A música {tituloDaMusica} de {nomeDoArtista} foi registrada com sucesso!");
+                artistaDAL.Atualizar(artistaRecuperado);
                 Thread.Sleep(4000);
                 Console.Clear();
             }
